@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="content-backoffice-ci-uitest Suite" parallel="classes" thread-count="5">
+	<test name="thread-test" thread-count="5">
+		<classes>
+			<class name="parallel.test.Test1"></class>
+			<class name="parallel.test.Test2"></class>
+			<class name="parallel.test.Test3"></class>
+		</classes>
+	</test>
+</suite>

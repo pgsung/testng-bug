@@ -1,0 +1,32 @@
+buildscript { repositories { mavenCentral()
+    } }
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+jar {
+    baseName = 'testng-bug'
+    version = '0.0.1-SNAPSHOT'
+}
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories { mavenCentral() }
+
+
+dependencies {
+    testCompile group: 'org.testng', name: 'testng', version: '6.14.2'
+}
+test {
+    // enable TestNG support (default is JUnit)
+    useTestNG { suites 'src/test/resources/testng.xml' }
+    systemProperties = System.getProperties()
+    // show standard out and standard error of the test JVM(s) on the console
+    testLogging.showStandardStreams = true
+    // listen to events in the test execution lifecycle
+    beforeTest { descriptor ->
+        logger.lifecycle("Running test: " + descriptor)
+    }
+    outputs.upToDateWhen { false }
+    reports.junitXml.destination = file('build/test-results/')
+}

@@ -2,14 +2,13 @@
 
 https://github.com/cbeust/testng/issues/1701
 
+https://github.com/gradle/gradle/issues/4457
+
 steps to reproduce:
 
 run ./gradlew clean test
 
-
-> Task :test
-Running test: Test method runTests(parallel.test.Test1)
-
+```
 content-backoffice-ci-uitest Suite > thread-test > parallel.test.Test1.runTests STANDARD_OUT
     10
 Running test: Test method runTests(parallel.test.Test2)
@@ -23,7 +22,5 @@ content-backoffice-ci-uitest Suite > thread-test > parallel.test.Test3.runTests 
 
 
 BUILD SUCCESSFUL in 2s
-
-Eexpect differenct thread id.
-
-run on macOS high sierra.
+```
+Expect different thread id.
